@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "airguardian"
+version = "0.1.0"
+description = "Real-time NFZ violation detection for drones"
+authors = ["To0nsa <nlouis@hive.student.fi>"]
+# tell Poetry “the package code lives in ./app”
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.116.1"
+uvicorn = { extras = ["standard"], version = "^0.24.0" }
+pydantic = "^2.1.0"
+pydantic-settings = "^2.0.0"
+httpx = "^0.25.0"
+SQLAlchemy = "^2.0.41"
+psycopg2-binary = "^2.9.7"
+celery = "^5.5.0"
+python-dotenv = "^1.0.0"
+redis = "^6.2.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.3.0"
+pytest-asyncio = "^0.21.0"
+alembic = "^1.16.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
