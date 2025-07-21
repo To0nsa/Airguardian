@@ -4,15 +4,21 @@
 
 ## Introduction
 
-**Airguardian** is a lightweight, containerized backend service designed to safeguard critical airspace by monitoring real-time drone activity and automatically detecting unauthorized incursions into designated no-fly zones (NFZs). Built on FastAPI and Celery, Airguardian:
+**Airguardian** is a lightweight, containerized backend service for monitoring airspace and detecting unauthorized drone activity in real time. Built with **FastAPI** and **Celery**, it provides automatic detection of no-fly zone (NFZ) violations and persistent tracking of drone incursions.
 
-- **Continuously polls** an external drones API for live position data (x, y, z coordinates).
-- **Applies geospatial logic** to flag any drone whose horizontal position falls within a 1,000-unit radius of a protected center point.
-- **Enriches each violation** with owner details (name, SSN, phone) fetched on-demand from a users API.
-- **Persists all incidents** in PostgreSQL for audit, reporting, and retrieval of violations from the last 24 hours.
-- **Exposes a simple, secure API** to check system health, retrieve raw drone feeds, and list recent NFZ violations (protected via a secret header).
+Key features include:
 
-Packaged with Docker and Docker Compose, Airguardian can be up and running in minutes—no special setup required—making it ideal for rapid testing, demos, or as the foundation of a larger air-space surveillance platform.
+*  **Live tracking** — Periodically polls an external drones API for up-to-date (x, y, z) position data.
+*  **Violation detection** — Flags any drone whose horizontal (x, y) position falls within a 1,000-unit radius of a protected zone.
+*  **Owner enrichment** — Retrieval of drone owner details (name, SSN, phone) from a users API, but only when a violation occurs.
+*  **Persistent storage** — All violations are logged in a **PostgreSQL** database and can be retrieved based on timestamp (e.g., past 24 hours).
+*  **API endpoints** — Provides secure endpoints to:
+
+  * Check service health,
+  * Fetch the latest drone data,
+  * List recent violations (with authentication via a secret header).
+
+Deployed using **Docker** and **Docker Compose**, Airguardian can be launched in minutes—ideal for demos, testing environments, or as a base layer for more advanced airspace surveillance systems.
 
 ---
 
