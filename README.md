@@ -188,7 +188,7 @@ And restart containers.
 
 ---
 
-**With these steps, you’ll have Airguardian running on any new machine with just Docker, Docker Compose, and git.**3
+**With these steps, you’ll have Airguardian running on any new machine with just Docker, Docker Compose, and git.**
 
 ---
 
